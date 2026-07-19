@@ -662,7 +662,7 @@ footer p{ color:var(--ivory-faint); font-size:13px; letter-spacing:.05em; }
       <path id="plHeart" d="M43 74C20 58 6 44 6 27 6 14 16 5 28 5c8 0 13 4 15 9 2-5 7-9 15-9 12 0 22 9 22 22 0 17-14 31-37 47Z"/>
     </svg>
   </div>
-  <div class="pl-label">خالد &amp; لمى</div>
+  <div class="pl-label">عبدالرحمن &amp; لمى</div>
   <div class="pl-bar"><i id="plBarFill"></i></div>
 </div>
 
@@ -843,45 +843,7 @@ footer p{ color:var(--ivory-faint); font-size:13px; letter-spacing:.05em; }
     </div>
   </section>
 
-  <!-- ============================================================
-       RSVP
-       ============================================================ -->
-  <section class="rsvp" id="rsvp">
-    <p class="eyebrow reveal center" data-reveal="fade-up">تأكيد الحضور</p>
-    <h2 class="section-title center reveal" data-reveal="blur-up">هل ستكونون معنا؟</h2>
-    <div class="rsvp-card reveal" data-reveal="rise">
-      <form id="rsvpForm">
-        <div class="field">
-          <label for="rName">الاسم الكريم</label>
-          <input id="rName" type="text" placeholder="اكتب اسمك هنا" required>
-        </div>
-        <div class="field-row">
-          <div class="field">
-            <label for="rAttend">الحضور</label>
-            <select id="rAttend">
-              <option>بكل سرور، سأحضر</option>
-              <option>يؤسفني، لن أتمكن</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="rGuests">عدد المرافقين</label>
-            <input id="rGuests" type="number" min="0" max="6" value="0">
-          </div>
-        </div>
-        <div class="field">
-          <label for="rMsg">رسالة للعروسين (اختياري)</label>
-          <textarea id="rMsg" placeholder="أطيب الأمنيات..."></textarea>
-        </div>
-        <button type="submit" class="btn btn-solid" style="width:100%;">تأكيد الحضور</button>
-      </form>
-      <div id="rsvp-success">
-        <svg viewBox="0 0 52 52"><path id="checkPath" d="M12 27L22 37L42 15"/></svg>
-        <h3>شكرًا لكم!</h3>
-        <p>تم استلام تأكيدكم بكل سرور وشغف. بانتظاركم لنحتفل معًا.</p>
-      </div>
-    </div>
-  </section>
-
+ 
   <footer>
     <svg class="svg-divider reveal" data-reveal="draw" viewBox="0 0 420 26" style="margin-bottom:26px;"><path d="M0 13H160M260 13H420M180 13C180 6 187 2 200 2C213 2 220 6 220 13C220 20 213 24 200 24C187 24 180 20 180 13Z"/></svg>
     <div class="footer-mono">ع &amp; ل</div>
@@ -1385,26 +1347,7 @@ function setupPortraitPhotos(){
 }
 
 /* ============================================================
-   13. RSVP FORM
-   ============================================================ */
-function setupRSVP(){
-  const form = document.getElementById("rsvpForm");
-  const success = document.getElementById("rsvp-success");
-  form.addEventListener("submit", function(e){
-    e.preventDefault();
-    const tl = gsap.timeline();
-    tl.to(form, {opacity:0, y:-14, filter:"blur(6px)", duration:0.5, ease:"power2.in"})
-      .set(form, {display:"none"})
-      .set(success, {display:"block"})
-      .fromTo(success, {opacity:0, y:14, filter:"blur(6px)"}, {opacity:1, y:0, filter:"blur(0px)", duration:0.8, ease:"power3.out"})
-      .add(function(){
-        const path = document.getElementById("checkPath");
-        const len = path.getTotalLength();
-        gsap.set(path, {strokeDasharray:len, strokeDashoffset:len});
-        gsap.to(path, {strokeDashoffset:0, duration:0.8, ease:"power2.out"});
-      }, "-=0.4");
-  });
-}
+ 
 
 /* ============================================================
    INIT
@@ -1419,7 +1362,6 @@ window.addEventListener("load", function(){
   setupCountdown();
   setupButtons();
   setupCards();
-  setupRSVP();
   setupMapsButton();
   setupPortraitPhotos();
   playIntro();
